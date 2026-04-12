@@ -1,0 +1,221 @@
+{
+  "id": "detectives_office",
+  "name": "Grimshaw's Office",
+  "background": "backgrounds/detectives_office.png",
+  "bounds": [1280, 720],
+  "music": "sounds/music/office_theme.ogg",
+
+  "depth_config": {
+    "horizon_y": 260,
+    "ground_y": 680,
+    "min_scale": 0.5,
+    "max_scale": 1.0
+  },
+
+  "walkable_area": {
+    "polygons": [
+      [[100, 440], [1180, 440], [1180, 690], [100, 690]]
+    ]
+  },
+
+  "entry_points": {
+    "default": [640, 580],
+    "from_waiting_room": [180, 520]
+  },
+
+  "hotspots": [
+    {
+      "id": "desk",
+      "name": "Desk",
+      "rect": [450, 380, 250, 100],
+      "walk_to": [580, 510],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "My desk. Buried under takeaway containers, unpaid invoices, and a fine layer of self-loathing.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "There's a hip flask in the top drawer. It's empty, but it's the principle.", "style": "thought"}
+        ],
+        "use": [
+          {
+            "type": "check_flag",
+            "condition": {"flag": "picked_up_flask", "equals": false},
+            "then": [
+              {"type": "say", "speaker": "player", "text": "I rummage through the drawer. Past the expired licence, the broken wand, and... hello."},
+              {"type": "say", "speaker": "player", "text": "My hip flask. Empty, of course. But having it on me makes me feel like a real detective.", "style": "thought"},
+              {"type": "give_item", "item_id": "hip_flask"},
+              {"type": "play_sfx", "sfx": "sounds/sfx/drawer_open.ogg"},
+              {"type": "set_flag", "flag": "picked_up_flask", "value": true}
+            ],
+            "else": [
+              {"type": "say", "speaker": "player", "text": "I've already taken everything worth taking from this desk. Which was one empty flask. Grim.", "style": "thought"}
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "crystal_ball",
+      "name": "Crystal Ball",
+      "rect": [550, 350, 70, 60],
+      "walk_to": [580, 480],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "My crystal ball. Grade D standard issue. It gets three channels, two of which are shopping networks.", "style": "thought"},
+          {"type": "set_flag", "flag": "examined_crystal_ball", "value": true}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I wave my hand over the crystal ball. It flickers to life, showing..."},
+          {"type": "say", "speaker": "player", "text": "...an advert for 'WizardDirect Insurance.' Your magical malpractice cover, sorted."},
+          {"type": "say", "speaker": "player", "text": "I turn it off. Some visions are too horrifying even for me.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "filing_cabinet",
+      "name": "Filing Cabinet",
+      "rect": [900, 340, 80, 150],
+      "walk_to": [870, 500],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {
+            "type": "check_flag",
+            "condition": {"flag": "searched_cabinet", "equals": true},
+            "then": [
+              {"type": "say", "speaker": "player", "text": "The filing cabinet. I've already pulled Gerald's file. Ethel's system actually works, against all odds.", "style": "thought"}
+            ],
+            "else": [
+              {"type": "say", "speaker": "player", "text": "Ethel's filing cabinet. She maintains it with religious fervour. I'm not allowed to touch it without a proper filing reference.", "style": "thought"},
+              {"type": "say", "speaker": "player", "text": "Last time I tried to file something myself, she didn't speak to me for a week. Best week of my career.", "style": "thought"}
+            ]
+          }
+        ],
+        "use": [
+          {
+            "type": "check_flag",
+            "condition": {"flag": "searched_cabinet", "equals": true},
+            "then": [
+              {"type": "say", "speaker": "player", "text": "I've already got what I need from the cabinet.", "style": "thought"}
+            ],
+            "else": [
+              {
+                "type": "check_flag",
+                "condition": {"has_item": "filing_reference"},
+                "then": [
+                  {"type": "say", "speaker": "player", "text": "I should use the filing reference card on the cabinet. Even I know that much.", "style": "thought"}
+                ],
+                "else": [
+                  {"type": "say", "speaker": "player", "text": "I need a filing reference to use this. Ethel's system is sacrosanct. The last person who misfiled something was never seen again.", "style": "thought"},
+                  {"type": "say", "speaker": "player", "text": "I assume she fired them. I prefer not to think about the alternatives.", "style": "thought"}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bookshelf",
+      "name": "Bookshelf",
+      "rect": [1000, 300, 140, 180],
+      "walk_to": [1000, 500],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "'Practical Thaumaturgy for the Reluctant Practitioner.' 'So Your Wand Is Broken: Now What?' 'Legal Loopholes in Magical Licensing (3rd Edition).'", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "All excellent references. All completely unread.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I pull out a book at random. 'Self-Help for the Magically Impaired.' Chapter one: 'Accept That It's Probably Your Fault.'", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "I put it back.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "hat_stand",
+      "name": "Hat Stand",
+      "rect": [130, 350, 50, 140],
+      "walk_to": [180, 490],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "My hat stand. It's holding a fedora I bought when I thought being a PI would be glamorous.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "That was three years, forty-seven cases, and one major existential crisis ago.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I put the fedora on. Then I take it off. I'm not a fedora person. I've accepted this.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "wanted_poster",
+      "name": "Wanted Poster",
+      "rect": [250, 310, 90, 110],
+      "walk_to": [290, 470],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "'WANTED: The Magnificent Bastardo. For crimes against magic, good taste, and several load-bearing walls.'", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "Reward: 5000 gold pieces. I could pay my rent for a year with that. Two years if I stop eating.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "takeaway_containers",
+      "name": "Takeaway Containers",
+      "rect": [480, 400, 120, 40],
+      "walk_to": [540, 490],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "A small city of takeaway containers. Kebab boxes mostly, from downstairs. Rashid gives me a discount.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "I think he feels sorry for me. Everyone feels sorry for me. It's my most marketable quality.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I check a container. Empty. Like my flask. And my career prospects.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "window",
+      "name": "Window",
+      "rect": [700, 280, 160, 120],
+      "walk_to": [780, 470],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "The window overlooks the high street. There's a man arguing with a pigeon. The pigeon appears to be winning.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "Enchanted pigeons. Another thing nobody asked for.", "style": "thought"}
+        ]
+      }
+    }
+  ],
+
+  "exits": [
+    {
+      "id": "to_waiting_room",
+      "exit_type": "hotspot",
+      "rect": [100, 360, 80, 130],
+      "walk_to": [180, 500],
+      "target_scene": "waiting_room",
+      "target_entry": "from_detectives_office"
+    }
+  ],
+
+  "npcs": [],
+
+  "on_enter": [
+    {
+      "type": "check_flag",
+      "condition": {"flag": "first_visit_office", "equals": true},
+      "then": [
+        {"type": "say", "speaker": "player", "text": "Home sweet office. It smells of old kebab and broken dreams. So, the usual.", "style": "thought"},
+        {"type": "say", "speaker": "player", "text": "Right. Better see what this minotaur wants. But first... I should grab a few things.", "style": "thought"},
+        {"type": "set_flag", "flag": "first_visit_office", "value": false}
+      ],
+      "else": []
+    }
+  ],
+  "on_exit": []
+}

@@ -1,0 +1,294 @@
+{
+  "id": "ethel_dialogue",
+  "nodes": {
+    "start": {
+      "type": "conditional",
+      "branches": [
+        {
+          "condition": {"flag": "case_accepted", "equals": true},
+          "next": "post_case_greeting"
+        },
+        {
+          "condition": {"flag": "has_case_file", "equals": true},
+          "next": "has_file_greeting"
+        },
+        {
+          "condition": {"flag": "asked_ethel_for_file", "equals": true},
+          "next": "already_gave_reference"
+        },
+        {
+          "condition": {"flag": "knows_about_labyrinth", "equals": true},
+          "next": "knows_about_case"
+        }
+      ],
+      "default": "first_greeting"
+    },
+
+    "first_greeting": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Ah, Mr. Grimshaw. You're late. As usual. Your nine o'clock has been waiting since half past eight.",
+      "next": "first_greeting_2"
+    },
+    "first_greeting_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "He's a minotaur. He's very anxious. He's also shed on three of the chairs. I'll be adding that to the cleaning invoice.",
+      "next": "first_greeting_response"
+    },
+    "first_greeting_response": {
+      "type": "player_say",
+      "text": "Good morning to you too, Ethel.",
+      "next": "first_choices"
+    },
+    "first_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "What can you tell me about the client?",
+          "next": "about_gerald"
+        },
+        {
+          "text": "Any messages for me?",
+          "next": "messages"
+        },
+        {
+          "text": "How are you today, Ethel?",
+          "next": "how_are_you"
+        },
+        {
+          "text": "I'll go talk to him.",
+          "next": "go_talk_bye"
+        }
+      ]
+    },
+
+    "about_gerald": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Gerald. Minotaur. Occupation: professional labyrinth dweller. Or WAS, until someone stole his labyrinth.",
+      "next": "about_gerald_2"
+    },
+    "about_gerald_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "He's been here since quarter to nine, pacing. Minotaurs pace. It's in their nature. Unfortunately, it's also in my carpet.",
+      "next": "first_choices"
+    },
+
+    "messages": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "The Wizard's Union called. Your membership has lapsed. Again. The Licensing Board called. Your Grade D licence expires next month.",
+      "next": "messages_2"
+    },
+    "messages_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Oh, and Rashid from downstairs says your tab is getting 'creatively large.' His words.",
+      "next": "messages_response"
+    },
+    "messages_response": {
+      "type": "player_say",
+      "text": "So... the usual.",
+      "next": "messages_3"
+    },
+    "messages_3": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "The usual.",
+      "next": "first_choices"
+    },
+
+    "how_are_you": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "I am a sentient filing golem, Mr. Grimshaw. I don't have feelings. I have filing systems.",
+      "next": "how_are_you_2"
+    },
+    "how_are_you_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "That said, if I DID have feelings, they would be filed under 'mild exasperation, chronic.'",
+      "next": "first_choices"
+    },
+
+    "go_talk_bye": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "How proactive of you. I've made a note of the date.",
+      "next": "go_talk_action"
+    },
+    "go_talk_action": {
+      "type": "action",
+      "actions": [
+        {"type": "set_flag", "flag": "talked_to_ethel", "value": true}
+      ],
+      "next": "end"
+    },
+
+    "knows_about_case": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Back again? I assume you've spoken to the minotaur about his little labyrinth problem.",
+      "next": "knows_about_case_choices"
+    },
+    "knows_about_case_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "I need his case file from the cabinet.",
+          "next": "request_file"
+        },
+        {
+          "text": "A stolen labyrinth? Is that even possible?",
+          "next": "stolen_labyrinth_possible"
+        },
+        {
+          "text": "Never mind, I'll figure it out.",
+          "next": "figure_it_out_bye"
+        }
+      ]
+    },
+
+    "request_file": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "You want to use MY filing system? Without supervision?",
+      "next": "request_file_2"
+    },
+    "request_file_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "...Fine. Here's the filing reference card. GER-LAB-7742/B. Do NOT misfold it. Do NOT spill anything on it. Do NOT lose it.",
+      "next": "request_file_3"
+    },
+    "request_file_3": {
+      "type": "action",
+      "actions": [
+        {"type": "give_item", "item_id": "filing_reference"},
+        {"type": "set_flag", "flag": "asked_ethel_for_file", "value": true},
+        {"type": "set_flag", "flag": "has_filing_reference", "value": true},
+        {"type": "play_sfx", "sfx": "sounds/sfx/item_pickup.ogg"}
+      ],
+      "next": "request_file_4"
+    },
+    "request_file_4": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "The filing cabinet is in your office. Use the reference card on it. And for the love of all that is alphabetised, put the drawer BACK when you're done.",
+      "next": "end"
+    },
+
+    "stolen_labyrinth_possible": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Anything is possible when people don't fill in the proper security forms. I warned the Labyrinth Board about their lax documentation.",
+      "next": "stolen_labyrinth_2"
+    },
+    "stolen_labyrinth_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Did they listen? No. 'Oh, it's a LABYRINTH, Ethel, nobody can steal a LABYRINTH.' Well. Look what happened.",
+      "next": "knows_about_case_choices"
+    },
+
+    "figure_it_out_bye": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Hmm. 'Figure it out.' A novel approach for you.",
+      "next": "end"
+    },
+
+    "already_gave_reference": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "I already gave you the filing reference, Mr. Grimshaw. GER-LAB-7742/B. Filing cabinet. Your office. Do I need to draw you a map?",
+      "next": "already_gave_choices"
+    },
+    "already_gave_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Right, right. The filing cabinet. I'm on it.",
+          "next": "on_it_bye"
+        },
+        {
+          "text": "Could you maybe just... get the file for me?",
+          "next": "get_file_yourself"
+        }
+      ]
+    },
+
+    "on_it_bye": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "I'll believe it when I see it.",
+      "next": "end"
+    },
+
+    "get_file_yourself": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Could you maybe just... do your own job? I'm a receptionist, not a retrieval service.",
+      "next": "get_file_yourself_2"
+    },
+    "get_file_yourself_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Well. I am literally a retrieval service. I'm a filing golem. But that's beside the point. Use the reference card on the filing cabinet.",
+      "next": "end"
+    },
+
+    "has_file_greeting": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "You have the case file. The client is in the waiting room. I trust even you can work out the next step.",
+      "next": "end"
+    },
+
+    "post_case_greeting": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Ah, you actually took on a case. Shall I alert the media?",
+      "next": "post_case_2"
+    },
+    "post_case_2": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "A stolen labyrinth. Well, it'll make a change from finding lost cats and serving notices on ghosts.",
+      "next": "post_case_choices"
+    },
+    "post_case_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Any advice?",
+          "next": "post_case_advice"
+        },
+        {
+          "text": "Thanks, Ethel. I think.",
+          "next": "post_case_bye"
+        }
+      ]
+    },
+
+    "post_case_advice": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Advice? Don't get killed. The paperwork for a dead employer is STAGGERING.",
+      "next": "end"
+    },
+
+    "post_case_bye": {
+      "type": "say",
+      "speaker": "ethel",
+      "text": "Don't thank me. Thank the filing system. It's the only thing in this office that works properly.",
+      "next": "end"
+    },
+
+    "end": {
+      "type": "end"
+    }
+  }
+}

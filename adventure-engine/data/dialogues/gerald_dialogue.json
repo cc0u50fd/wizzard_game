@@ -1,0 +1,312 @@
+{
+  "id": "gerald_dialogue",
+  "nodes": {
+    "start": {
+      "type": "conditional",
+      "branches": [
+        {
+          "condition": {"flag": "case_accepted", "equals": true},
+          "next": "post_case_greeting"
+        },
+        {
+          "condition": {"flag": "knows_about_labyrinth", "equals": true},
+          "next": "return_greeting"
+        }
+      ],
+      "default": "first_meeting"
+    },
+
+    "first_meeting": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Oh! Oh, you must be Mr. Grimshaw! The detective! Please, please, you have to help me!",
+      "next": "first_meeting_2"
+    },
+    "first_meeting_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I've been to the police, the Labyrinth Board, the Magical Creatures Housing Association — nobody will do anything!",
+      "next": "first_meeting_response"
+    },
+    "first_meeting_response": {
+      "type": "player_say",
+      "text": "Slow down, big fella. Take a breath. What happened?",
+      "next": "first_meeting_3"
+    },
+    "first_meeting_3": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Someone STOLE my LABYRINTH!",
+      "style": "shout",
+      "next": "first_meeting_4"
+    },
+    "first_meeting_4": {
+      "type": "player_say",
+      "text": "Your... labyrinth. Someone stole... an entire labyrinth.",
+      "next": "first_meeting_5"
+    },
+    "first_meeting_5": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Yes! I came home from the shops — I was buying thread, I go through a LOT of thread — and it was just... GONE.",
+      "next": "first_meeting_6"
+    },
+    "first_meeting_6": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "The whole thing. Walls, corridors, dead ends, the lot. Just a big empty field with a 'FOR SALE' sign on it.",
+      "next": "first_meeting_7"
+    },
+    "first_meeting_7": {
+      "type": "action",
+      "actions": [
+        {"type": "set_flag", "flag": "talked_to_gerald", "value": true},
+        {"type": "set_flag", "flag": "knows_about_labyrinth", "value": true}
+      ],
+      "next": "main_choices"
+    },
+
+    "main_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Do you have any idea who took it?",
+          "next": "who_took_it"
+        },
+        {
+          "text": "What exactly IS a stolen labyrinth case?",
+          "next": "what_is_case"
+        },
+        {
+          "text": "Tell me about yourself, Gerald.",
+          "next": "about_gerald"
+        },
+        {
+          "text": "I'll look into it. Sit tight.",
+          "next": "sit_tight_bye"
+        }
+      ]
+    },
+
+    "who_took_it": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I don't know! That's why I need a DETECTIVE!",
+      "next": "who_took_it_2"
+    },
+    "who_took_it_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Well... there was one thing. I found this business card on the ground where the entrance used to be.",
+      "next": "who_took_it_3"
+    },
+    "who_took_it_3": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "'Bastardo's Discount Labyrinth Relocation Services — We Move Your Maze!' With a little winky face.",
+      "next": "who_took_it_4"
+    },
+    "who_took_it_4": {
+      "type": "player_say",
+      "text": "Bastardo. Why is it always Bastardo.",
+      "next": "who_took_it_5"
+    },
+    "who_took_it_5": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "You know him?!",
+      "next": "who_took_it_6"
+    },
+    "who_took_it_6": {
+      "type": "player_say",
+      "text": "Everyone knows The Magnificent Bastardo. Con artist, showman, and the most wanted wizard in three counties.",
+      "next": "main_choices"
+    },
+
+    "what_is_case": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Well, it's— I mean— a labyrinth is a minotaur's HOME. It's our identity. Without it, I'm just... a large man with horns and a poor sense of direction.",
+      "next": "what_is_case_2"
+    },
+    "what_is_case_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Do you know how hard it is to get a flat when you're a minotaur? Landlords take one look at the horns and suddenly the property is 'no longer available.'",
+      "next": "what_is_case_3"
+    },
+    "what_is_case_3": {
+      "type": "player_say",
+      "text": "I hear you, Gerald. The housing market is rough for everyone. Especially those of us above kebab shops.",
+      "next": "main_choices"
+    },
+
+    "about_gerald": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Oh, well, I'm Gerald. Just Gerald. I had a surname once but it was thirteen syllables long and nobody could pronounce it.",
+      "next": "about_gerald_2"
+    },
+    "about_gerald_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I'm a certified Labyrinth Dweller, Grade B. I did my NVQ in Lurking and everything. Got a distinction in Ominous Breathing.",
+      "next": "about_gerald_3"
+    },
+    "about_gerald_3": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I also do a bit of freelance menacing on weekends. Well, I DID. Hard to menace without a labyrinth. It's all about the acoustics.",
+      "next": "main_choices"
+    },
+
+    "sit_tight_bye": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Oh, thank you, Mr. Grimshaw! I'll just... wait here then, shall I?",
+      "next": "sit_tight_2"
+    },
+    "sit_tight_2": {
+      "type": "player_say",
+      "text": "That's literally what a waiting room is for, Gerald.",
+      "next": "sit_tight_3"
+    },
+    "sit_tight_3": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Right! Yes! Waiting. I can do that. I'm very good at waiting. Minotaurs wait a lot. In labyrinths. Which I DON'T HAVE.",
+      "style": "shout",
+      "next": "sit_tight_4"
+    },
+    "sit_tight_4": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Sorry. Sorry. Bit emotional.",
+      "style": "whisper",
+      "next": "end"
+    },
+
+    "return_greeting": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Mr. Grimshaw! Any news? Have you found my labyrinth? Is it okay? Does it miss me?",
+      "next": "return_choices"
+    },
+    "return_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "I'm working on it. Just need to sort out the paperwork.",
+          "next": "paperwork_response"
+        },
+        {
+          "text": "Tell me about that business card again.",
+          "next": "who_took_it_2"
+        },
+        {
+          "text": "Sit tight, Gerald. I'll be back.",
+          "next": "sit_tight_gerald"
+        }
+      ]
+    },
+
+    "paperwork_response": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Paperwork? PAPERWORK?! My home has been STOLEN and there's PAPERWORK?!",
+      "style": "shout",
+      "next": "paperwork_2"
+    },
+    "paperwork_2": {
+      "type": "player_say",
+      "text": "Welcome to the magical services industry, Gerald. Everything requires a form.",
+      "next": "paperwork_3"
+    },
+    "paperwork_3": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I hate paperwork. My hooves can't hold a pen properly. Do you know how hard it is to sign things with hooves?",
+      "next": "end"
+    },
+
+    "sit_tight_gerald": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "More waiting. Right. Fine. I'll just... sit here. Being homeless. Without a labyrinth.",
+      "next": "sit_tight_gerald_2"
+    },
+    "sit_tight_gerald_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Don't mind me. I'll be FINE.",
+      "style": "whisper",
+      "next": "end"
+    },
+
+    "post_case_greeting": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Oh Mr. Grimshaw! You're really going to find my labyrinth! I feel so much better!",
+      "next": "post_case_2"
+    },
+    "post_case_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Well, not GOOD exactly. More like 'slightly less catastrophically anxious.' But for a minotaur, that's practically euphoria!",
+      "next": "post_case_choices"
+    },
+    "post_case_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Tell me everything about the day it disappeared.",
+          "next": "disappearance_details"
+        },
+        {
+          "text": "I'll keep you posted, Gerald.",
+          "next": "keep_posted_bye"
+        }
+      ]
+    },
+
+    "disappearance_details": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Right, so, it was Tuesday. I know because Tuesday is thread day at the market. Minotaur thing, don't ask.",
+      "next": "disappearance_2"
+    },
+    "disappearance_2": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "I was gone maybe two hours. When I came back — empty field. Not even a wall. Just that business card and a faint smell of cheap cologne.",
+      "next": "disappearance_3"
+    },
+    "disappearance_3": {
+      "type": "player_say",
+      "text": "Bastardo's signature scent. 'Eau de Charlatan.' I'd recognise it anywhere.",
+      "next": "disappearance_4"
+    },
+    "disappearance_4": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "So you WILL find him? And my labyrinth?",
+      "next": "disappearance_5"
+    },
+    "disappearance_5": {
+      "type": "player_say",
+      "text": "I'll find him. Whether the labyrinth is still in one piece... well, we'll cross that bridge when we come to it.",
+      "next": "end"
+    },
+
+    "keep_posted_bye": {
+      "type": "say",
+      "speaker": "gerald",
+      "text": "Thank you, Mr. Grimshaw. You're a good man. A bit scruffy and you smell of kebab, but a good man.",
+      "next": "end"
+    },
+
+    "end": {
+      "type": "end"
+    }
+  }
+}

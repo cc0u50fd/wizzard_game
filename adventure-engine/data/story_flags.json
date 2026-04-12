@@ -1,4 +1,18 @@
 {
-  "starting_scene": "example_scene",
-  "initial_flags": {}
+  "starting_scene": "waiting_room",
+  "initial_flags": {
+    "talked_to_gerald": false,
+    "knows_about_labyrinth": false,
+    "talked_to_ethel": false,
+    "asked_ethel_for_file": false,
+    "has_filing_reference": false,
+    "searched_cabinet": false,
+    "has_case_file": false,
+    "case_accepted": false,
+    "picked_up_flask": false,
+    "first_visit_waiting_room": true,
+    "first_visit_office": true,
+    "examined_noticeboard": false,
+    "examined_crystal_ball": false
+  }
 }

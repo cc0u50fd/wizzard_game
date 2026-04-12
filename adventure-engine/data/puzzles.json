@@ -1,3 +1,17 @@
 {
-  "puzzles": []
+  "puzzles": [
+    {
+      "id": "accept_geralds_case",
+      "name": "Accept Gerald's Case",
+      "description": "Gerald the minotaur needs help finding his stolen labyrinth. Navigate the bureaucracy to officially take on his case.",
+      "hints": [
+        "Maybe you should talk to the anxious-looking minotaur in the waiting room.",
+        "Gerald's upset about a stolen labyrinth. Ethel the receptionist might be able to help with the paperwork.",
+        "Ask Ethel about Gerald's case file. She'll give you a filing reference card.",
+        "Take the filing reference card to the filing cabinet in your office.",
+        "Use the case file on Gerald in the waiting room to officially accept his case."
+      ],
+      "completion_flag": "case_accepted"
+    }
+  ]
 }

@@ -22,46 +22,61 @@ the player does not.
 
 ## Setting
 
-> *To be developed — add your ideas here*
+A parody fantasy world wearing a modern British skin. Magic exists but is regulated,
+unionised, taxed, and buried under paperwork. The aesthetic is anachronistic —
+medieval-ish buildings, vaguely Victorian institutions, modern mundanities (kebab shops,
+plastic chairs, takeaway menus, clip-on ties). Think Terry Pratchett's Ankh-Morpork
+crossed with a run-down British high street.
 
-Some starter questions to discuss:
-- Is this a classic fantasy world, a parody of one, or something stranger?
-- What's the state of magic? (Unionised? Taxed? Outsourced to the lowest bidder?)
-- What's the rough era/aesthetic — medieval, vaguely Victorian, anachronistic mix?
+**Magic:** Licensed by grade (A–E, with D being "barely functional"). The Wizard's
+Union enforces dues. The Licensing Board enforces renewals. Neither enforces competence.
+
+**Era:** Deliberately inconsistent — crystal balls show adverts, golems work as
+receptionists, minotaurs wear cheap suits. The anachronism *is* the joke.
 
 ---
 
 ## Story
 
-> *To be developed*
-
-- **Premise:** ...
-- **The inciting incident:** ...
-- **The goal (what the player thinks they want):** ...
-- **The actual goal (what they actually need):** ...
-- **The antagonist:** ...
+- **Premise:** Mortimer Grimshaw is a burnt-out wizard PI running a one-man detective
+  agency above a kebab shop. Business is bad. Then a minotaur walks in.
+- **The inciting incident:** Gerald the minotaur's labyrinth has been stolen — the whole
+  thing, walls and all — and the only clue is a business card from "Bastardo's Discount
+  Labyrinth Relocation Services."
+- **The goal (what the player thinks they want):** Find Gerald's labyrinth and bring
+  The Magnificent Bastardo to justice.
+- **The actual goal (what they actually need):** *TBD — something about Grimshaw
+  rediscovering his self-worth / renewing his licence / actually being good at his job again*
+- **The antagonist:** The Magnificent Bastardo — con artist, showman, and the most wanted
+  wizard in three counties. Cheap cologne, business cards everywhere, a flair for the dramatic.
 
 ---
 
 ## Player Character
 
-> *To be developed*
-
-- **Name:** ...
-- **Title/rank:** ...
-- **Personality:** ...
-- **Their fatal flaw (comedically):** ...
-- **Why they're the worst possible person for this quest:** ...
+- **Name:** Mortimer Grimshaw
+- **Title/rank:** Private Investigator, Grade D wizard (expired licence)
+- **Personality:** Deeply sarcastic, world-weary, self-deprecating. Narrates his own
+  life in hard-boiled detective monologue. Underneath the cynicism, he actually cares —
+  he just wishes he didn't.
+- **Their fatal flaw (comedically):** He's competent enough to take on cases but too
+  burnt-out to finish them efficiently. His inner monologue never stops. He solves
+  problems sideways because doing things properly requires paperwork.
+- **Why they're the worst possible person for this quest:** His magic licence is expired,
+  he owes money to everyone, his wand is broken, and his main investigative tool is an
+  empty hip flask and a Grade D crystal ball that gets three channels (two shopping networks).
 
 ---
 
 ## Key Characters
 
-> *Add characters as they emerge*
-
 | Name | Role | Personality | Notes |
 |------|------|-------------|-------|
-| TBD  |      |             |       |
+| Mortimer Grimshaw | Player character — wizard PI | Sarcastic, burnt-out, secretly competent | Grade D licence (expired), trench coat, empty hip flask |
+| Mrs. Ethel Copperbottom | Receptionist — sentient filing golem | Passive-aggressive, terrifyingly efficient, speaks in filing metaphors | Made of card catalogues and brass index tabs, wears a tiny cardigan |
+| Gerald | Client — minotaur | Anxious, earnest, emotional, surprisingly gentle | Cheap suit, clip-on tie, NVQ in Lurking, distinction in Ominous Breathing |
+| The Magnificent Bastardo | Antagonist — con artist wizard | *Not yet seen in-game* | Most wanted wizard in three counties, cheap cologne, business cards |
+| Rashid | Kebab shop owner (downstairs) | *Not yet in-game — mentioned only* | Gives Grimshaw a discount (out of pity), tab is "creatively large" |
 
 ---
 
@@ -77,34 +92,55 @@ Some starter questions to discuss:
 
 ## Art Direction
 
-> *To be decided*
-
-- Style references: ...
-- Palette / colour mood: ...
-- UI style: ...
-- Character design notes: ...
+- **Style references:** LucasArts adventure games (Monkey Island, Day of the Tentacle),
+  Discworld point-and-clicks. Detailed 2D backgrounds, slightly exaggerated character
+  proportions.
+- **Palette / colour mood:** Warm but dingy — browns, ambers, faded greens, worn wood,
+  scuffed leather. Pops of colour from magical items (crystal ball glow, Ethel's brass
+  fittings). Think "cosy squalor."
+- **UI style:** Engine defaults (parchment tones, radial menus). Works well with the tone.
+- **Character design notes:** Big heads, expressive faces/hands. Not realistic but grounded
+  enough to sell the comedy. Ethel is boxy/angular (filing cabinet body), Gerald is large
+  and hunched (anxiety, not menace).
+- **Art prompts:** See [`adventure-engine/ART_PROMPTS.md`](adventure-engine/ART_PROMPTS.md)
+  for generation-ready prompts for all assets.
 
 ---
 
 ## World & Locations
 
-> *Add locations as they are conceived*
-
 | Location | Description | Purpose in story |
 |----------|-------------|-----------------|
-| TBD      |             |                 |
+| `waiting_room` | Shabby waiting room above a kebab shop — plastic chairs, noticeboard, water cooler, Ethel's reception desk | Starting scene. Meet Gerald and Ethel, begin the case |
+| `detectives_office` | Grimshaw's office — desk buried under takeaway containers, crystal ball, filing cabinet, bookshelf, hat stand | Pick up hip flask, use filing cabinet to get case file |
 
 ---
+
+## Current Demo Status
+
+A two-scene playable demo is complete (`waiting_room` + `detectives_office`).
+All placeholder art — fully playable without real assets.
+
+**Puzzle:** "Accept Gerald's Case" — talk to Gerald → talk to Ethel → get filing
+reference → use on filing cabinet → get case file → use on Gerald. Tests conditional
+dialogues, item use-on, scene transitions, flags, and cross-scene puzzle flow.
+
+**What's implemented:** 16 hotspots, 2 NPCs, 2 branching dialogue trees (79 nodes total),
+3 inventory items (12+ comedic red-herring use_on responses), 13 flags, first-visit
+monologues, puzzle metadata with progressive hints.
 
 ## Open Questions
 
 Things we haven't decided yet — discuss and move answers into the relevant section above.
 
-- What is the setting's central satirical target? (Fantasy bureaucracy? Academia? Guild culture? All of the above?)
+- ~~What is the setting's central satirical target?~~ → Fantasy bureaucracy, magical licensing, mundane institutions — all of the above
 - Single protagonist or do we play multiple characters?
 - What's the scope? (Short demo, episodic, full game?)
 - ~~Target platform?~~ → Desktop (Pygame) for prototyping; mobile port aspirations for the future
 - Voice acting, music, sound effects — ambitions here?
+- What happens after Grimshaw accepts the case? Where does the investigation lead?
+- Do we meet Bastardo in person? Is he a boss fight, a chase, or just an escalating series of business cards?
+- Should Grimshaw have a companion? (Familiar? Reluctant sidekick? Enchanted pigeon?)
 
 ---
 

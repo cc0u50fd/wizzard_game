@@ -1,0 +1,181 @@
+{
+  "id": "waiting_room",
+  "name": "Grimshaw & Associates — Waiting Room",
+  "background": "backgrounds/waiting_room.png",
+  "bounds": [1280, 720],
+  "music": "sounds/music/waiting_room.ogg",
+
+  "depth_config": {
+    "horizon_y": 280,
+    "ground_y": 680,
+    "min_scale": 0.5,
+    "max_scale": 1.0
+  },
+
+  "walkable_area": {
+    "polygons": [
+      [[80, 440], [1200, 440], [1200, 690], [80, 690]]
+    ]
+  },
+
+  "entry_points": {
+    "default": [640, 580],
+    "from_detectives_office": [1100, 520]
+  },
+
+  "hotspots": [
+    {
+      "id": "ethel_hs",
+      "name": "Mrs. Copperbottom",
+      "rect": [300, 370, 100, 180],
+      "walk_to": [440, 510],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "Ethel Copperbottom. Sentient filing golem, receptionist, and the only person in this building who actually knows where anything is.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "She was assembled from a Victorian card catalogue and a lifetime of passive aggression. She's been here longer than the building.", "style": "thought"}
+        ],
+        "talk": [
+          {"type": "start_dialogue", "dialogue_id": "ethel_dialogue"}
+        ]
+      }
+    },
+    {
+      "id": "gerald_hs",
+      "name": "Gerald",
+      "rect": [850, 370, 120, 200],
+      "walk_to": [790, 530],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "A minotaur in a cheap suit. He's sweating, fidgeting, and looks like he hasn't slept in days.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "The suit is off-the-rack. Way off. It wasn't designed for someone with horns and hooves.", "style": "thought"}
+        ],
+        "talk": [
+          {"type": "start_dialogue", "dialogue_id": "gerald_dialogue"}
+        ]
+      }
+    },
+    {
+      "id": "chairs",
+      "name": "Waiting Room Chairs",
+      "rect": [600, 480, 180, 80],
+      "walk_to": [690, 560],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "Three plastic chairs, bolted together. The kind you find in dentist's offices and purgatory.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "Someone has carved 'THE WIZARD DID IT' into the armrest. Very helpful.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I'll stand, thanks. Sitting down in this office implies a level of permanence I'm not comfortable with.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "noticeboard",
+      "name": "Noticeboard",
+      "rect": [130, 300, 130, 120],
+      "walk_to": [200, 460],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "The noticeboard. Let's see what's on today...", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "'MISSING: One (1) sense of purpose. If found, return to Grimshaw.' Very funny, Ethel.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "There's also a health and safety notice about not summoning entities in the stairwell. Again.", "style": "thought"},
+          {"type": "set_flag", "flag": "examined_noticeboard", "value": true}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I'm not qualified to update the noticeboard. Ethel has a very specific system. And by 'system' I mean 'reign of terror.'", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "water_cooler",
+      "name": "Water Cooler",
+      "rect": [500, 380, 60, 100],
+      "walk_to": [530, 480],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "The water cooler. It occasionally makes a bubbling noise that sounds disturbingly like laughter.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I press the tap. Nothing comes out. The cooler makes that laughing sound again.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "I'm 60% sure this water cooler is haunted. The other 40% thinks it's just broken.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "door_sign",
+      "name": "Door Sign",
+      "rect": [1080, 320, 100, 50],
+      "walk_to": [1050, 480],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "'GRIMSHAW & ASSOCIATES — Private Investigations, Magical Consulting, & Light Exorcism.'", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "There are no associates. There have never been associates. The 'and Associates' just makes it sound less sad.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "potted_plant",
+      "name": "Potted Plant",
+      "rect": [80, 420, 50, 90],
+      "walk_to": [140, 470],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "A plastic potted plant. Even fake plants die in this office. Somehow.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I adjust the plastic leaf. There. Interior design.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "magazine_rack",
+      "name": "Magazine Rack",
+      "rect": [700, 400, 80, 60],
+      "walk_to": [740, 500],
+      "look_at_dir": "right",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "A magazine rack containing three issues of 'Which Wand?' from 2019, a takeaway menu, and something that appears to be a ransom note.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "...Oh wait, that's just the takeaway menu. Those prices ARE criminal.", "style": "thought"}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I flip through 'Which Wand?' The top-rated wand is a stick that Gary from Swindon found in his garden. This is the state of the industry.", "style": "thought"}
+        ]
+      }
+    }
+  ],
+
+  "exits": [
+    {
+      "id": "to_office",
+      "exit_type": "hotspot",
+      "rect": [1100, 340, 120, 150],
+      "walk_to": [1100, 500],
+      "target_scene": "detectives_office",
+      "target_entry": "from_waiting_room"
+    }
+  ],
+
+  "npcs": ["ethel", "gerald"],
+
+  "on_enter": [
+    {
+      "type": "check_flag",
+      "condition": {"flag": "first_visit_waiting_room", "equals": true},
+      "then": [
+        {"type": "say", "speaker": "player", "text": "Another day at the office. And by 'office' I mean this waiting room above a kebab shop that smells of desperation and donor meat.", "style": "thought"},
+        {"type": "say", "speaker": "player", "text": "Looks like I've got a client. A minotaur, by the looks of him. In a suit. Things must be really bad.", "style": "thought"},
+        {"type": "set_flag", "flag": "first_visit_waiting_room", "value": false}
+      ],
+      "else": []
+    }
+  ],
+  "on_exit": []
+}

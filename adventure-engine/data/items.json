@@ -1,3 +1,99 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "hip_flask",
+      "name": "Hip Flask",
+      "icon": "items/hip_flask.png",
+      "examine_text": "A dented hip flask. Empty, naturally. Story of my life.",
+      "combinable_with": {},
+      "use_on": {
+        "ethel_hs": [
+          {"type": "say", "speaker": "player", "text": "I'm not offering an empty flask to the filing golem. She'd file a grievance.", "style": "thought"}
+        ],
+        "gerald_hs": [
+          {"type": "say", "speaker": "player", "text": "Gerald looks like he could use a drink, but I'm fresh out. Welcome to the club, pal.", "style": "thought"}
+        ],
+        "water_cooler": [
+          {"type": "say", "speaker": "player", "text": "I briefly consider filling the flask with water. Then I remember I have standards. Low standards, but standards.", "style": "thought"}
+        ],
+        "noticeboard": [
+          {"type": "say", "speaker": "player", "text": "I can't drink a noticeboard. Believe me, I've tried worse.", "style": "thought"}
+        ],
+        "chairs": [
+          {"type": "say", "speaker": "player", "text": "No amount of alcohol would make these chairs comfortable. Not that I have any to test the theory.", "style": "thought"}
+        ],
+        "desk": [
+          {"type": "say", "speaker": "player", "text": "I already checked the desk. That's where I found this tragically empty flask in the first place.", "style": "thought"}
+        ],
+        "crystal_ball": [
+          {"type": "say", "speaker": "player", "text": "I hold the flask up to the crystal ball. It shows me a vision of the flask... still empty. Thanks for nothing.", "style": "thought"}
+        ],
+        "filing_cabinet": [
+          {"type": "say", "speaker": "player", "text": "I don't think the filing cabinet accepts liquid bribes.", "style": "thought"}
+        ],
+        "bookshelf": [
+          {"type": "say", "speaker": "player", "text": "Books and booze don't mix. Well, actually they mix brilliantly, but not like this.", "style": "thought"}
+        ],
+        "wanted_poster": [
+          {"type": "say", "speaker": "player", "text": "I'm not wasting good— wait, it's empty. Never mind.", "style": "thought"}
+        ],
+        "hat_stand": [
+          {"type": "say", "speaker": "player", "text": "I briefly consider using the flask as a hat. Things haven't gotten that bad yet. Close, though.", "style": "thought"}
+        ],
+        "takeaway_containers": [
+          {"type": "say", "speaker": "player", "text": "Mixing old kebab grease with an empty flask. Even I'm not that desperate.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "filing_reference",
+      "name": "Filing Reference Card",
+      "icon": "items/filing_reference.png",
+      "examine_text": "A small card with 'GER-LAB-7742/B' written on it in impossibly neat handwriting. Below that, in smaller letters: 'Filed under: Labyrinth, Stolen (see also: Minotaur, Distressed)'.",
+      "combinable_with": {},
+      "use_on": {
+        "filing_cabinet": [
+          {"type": "say", "speaker": "player", "text": "GER-LAB-7742/B... let's see..."},
+          {"type": "say", "speaker": "player", "text": "Here we go. One case file, pre-prepared. Ethel is frighteningly efficient."},
+          {"type": "remove_item", "item_id": "filing_reference"},
+          {"type": "give_item", "item_id": "case_file"},
+          {"type": "play_sfx", "sfx": "sounds/sfx/drawer_open.ogg"},
+          {"type": "set_flag", "flag": "searched_cabinet", "value": true},
+          {"type": "set_flag", "flag": "has_case_file", "value": true}
+        ],
+        "ethel_hs": [
+          {"type": "say", "speaker": "ethel", "text": "I gave you that card so you could use the FILING CABINET, Mr. Grimshaw. In your OFFICE. That's the room with the desk and the regrettable smell."}
+        ],
+        "gerald_hs": [
+          {"type": "say", "speaker": "player", "text": "Waving a filing reference at the client isn't going to help. I need to actually pull the file first.", "style": "thought"}
+        ]
+      }
+    },
+    {
+      "id": "case_file",
+      "name": "Case File",
+      "icon": "items/case_file.png",
+      "examine_text": "A manila folder labelled 'GERALD — Labyrinth, Stolen.' Inside: a form in triplicate, a risk assessment, and a surprisingly accurate sketch of a labyrinth. Someone has written 'URGENT — client is a minotaur and keeps pacing' in red ink.",
+      "combinable_with": {},
+      "use_on": {
+        "gerald_hs": [
+          {"type": "say", "speaker": "player", "text": "Right, Gerald. I've got your case file here. Let's make this official."},
+          {"type": "say", "speaker": "gerald", "text": "Oh! Oh, you mean... you'll take my case? Really truly?"},
+          {"type": "say", "speaker": "player", "text": "Against my better judgement, yes. Someone's nicked your labyrinth and I'm going to find out who."},
+          {"type": "say", "speaker": "gerald", "text": "Oh thank you, thank you! You won't regret this!"},
+          {"type": "say", "speaker": "player", "text": "I already regret this. But that's never stopped me before.", "style": "thought"},
+          {"type": "remove_item", "item_id": "case_file"},
+          {"type": "set_flag", "flag": "case_accepted", "value": true},
+          {"type": "say", "speaker": "player", "text": "Right. A stolen labyrinth. How hard can it be to find an entire labyrinth?"},
+          {"type": "say", "speaker": "player", "text": "...Don't answer that.", "style": "thought"}
+        ],
+        "ethel_hs": [
+          {"type": "say", "speaker": "ethel", "text": "That file goes to the CLIENT, Mr. Grimshaw. The large anxious gentleman with the horns. In the WAITING ROOM."}
+        ],
+        "filing_cabinet": [
+          {"type": "say", "speaker": "player", "text": "I just took this OUT of the filing cabinet. Putting it back would be the most pointless thing I've done today. And the bar is high.", "style": "thought"}
+        ]
+      }
+    }
+  ]
 }
