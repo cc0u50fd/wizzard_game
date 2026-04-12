@@ -1,0 +1,48 @@
+{
+  "id": "example_scene",
+  "name": "Example Room",
+  "bounds": [1280, 720],
+
+  "depth_config": {
+    "horizon_y": 200,
+    "ground_y": 680,
+    "min_scale": 0.4,
+    "max_scale": 1.0
+  },
+
+  "walkable_area": {
+    "polygons": [
+      [[50, 450], [1230, 450], [1230, 700], [50, 700]]
+    ]
+  },
+
+  "entry_points": {
+    "default": [640, 600]
+  },
+
+  "hotspots": [
+    {
+      "id": "example_object",
+      "name": "Interesting Object",
+      "rect": [500, 350, 100, 80],
+      "walk_to": [550, 500],
+      "look_at_dir": "right",
+      "enabled": true,
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "An interesting object. I wonder what it does."}
+        ],
+        "use": [
+          {"type": "say", "speaker": "player", "text": "I'm not sure how to use this yet."}
+        ]
+      }
+    }
+  ],
+
+  "exits": [],
+  "npcs": [],
+  "on_enter": [
+    {"type": "say", "speaker": "player", "text": "Welcome to the adventure engine! Right-click on objects to interact."}
+  ],
+  "on_exit": []
+}

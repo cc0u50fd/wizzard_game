@@ -103,22 +103,76 @@ Things we haven't decided yet — discuss and move answers into the relevant sec
 - What is the setting's central satirical target? (Fantasy bureaucracy? Academia? Guild culture? All of the above?)
 - Single protagonist or do we play multiple characters?
 - What's the scope? (Short demo, episodic, full game?)
-- Target platform? (Desktop, browser, mobile?)
+- ~~Target platform?~~ → Desktop (Pygame) for prototyping; mobile port aspirations for the future
 - Voice acting, music, sound effects — ambitions here?
 
 ---
 
 ## Tech Stack
 
-> *To be decided once story/scope is clearer*
+**Python + Pygame** — chosen for rapid prototyping. Both collaborators know Python,
+and we already have a working JSON-driven adventure engine. Ambitions to port to
+mobile in the future (likely via Godot or similar), but Pygame first to get the
+game designed, written, and playable.
 
-Candidates to evaluate:
-- **Python + Pygame** — simple, good for rapid prototyping
-- **Godot** — full-featured, free, good 2D support, GDScript is approachable
-- **JavaScript + Phaser** — browser-native, easy to share/playtest
-- **Ren'Py** — purpose-built for dialogue-heavy adventure games
+### Adventure Engine
 
-Decision criteria: scope, art pipeline, ease of collaboration, target platform.
+A generic, reusable point-and-click adventure engine lives in `adventure-engine/`.
+Full documentation: [`adventure-engine/ENGINE_REFERENCE.md`](adventure-engine/ENGINE_REFERENCE.md)
+
+**Key facts:**
+- **Python 3.12+**, **Pygame 2.6.1** (or pygame-ce)
+- **Data-driven** — game designers write JSON, not Python. All scenes, items, dialogues,
+  puzzles, and story logic live in `data/` files; the engine reads and executes them
+- **Entry point:** `adventure-engine/run_game.py`
+- **Run:** `cd adventure-engine && python3 run_game.py` (after `pip install pygame`)
+
+**Project layout:**
+```
+adventure-engine/
+├── run_game.py              # Entry point
+├── ENGINE_REFERENCE.md      # Full engine docs (JSON schemas, module guide, how-tos)
+├── engine/                  # 18 Python modules (DO NOT edit to add game content)
+│   ├── main.py              # Game loop orchestrator
+│   ├── scene.py             # Scenes, walkable areas, hotspots, exits
+│   ├── player.py            # Player movement + animation
+│   ├── character.py         # NPCs + companion AI
+│   ├── interaction.py       # Cursor, radial menu, input dispatch
+│   ├── inventory.py         # Slide-down inventory UI
+│   ├── dialogue.py          # Branching dialogue trees
+│   ├── scripting.py         # JSON script action executor
+│   ├── pathfinding.py       # A* pathfinding (polygon + mask modes)
+│   ├── speech_bubble.py     # Comic-style speech bubbles + typewriter
+│   ├── camera.py            # Smooth-follow camera for wide scenes
+│   ├── transitions.py       # Fade in/out
+│   ├── sound.py             # Music + SFX (fail-silent)
+│   ├── state.py             # Flags, inventory, save/load
+│   ├── item.py              # Item definitions
+│   ├── sprite_sheet.py      # Sprite loading + placeholder generation
+│   ├── data_loader.py       # JSON loader
+│   └── settings.py          # All engine constants
+├── data/                    # Game content (JSON — this is where we build the game)
+│   ├── scenes/              # One .json per scene/room
+│   ├── dialogues/           # One .json per dialogue tree
+│   ├── items.json           # All inventory items
+│   ├── characters.json      # All NPCs
+│   ├── story_flags.json     # Starting scene + initial flags
+│   └── puzzles.json         # Puzzle metadata + hints
+└── assets/                  # All media (backgrounds, sprites, items, sounds, fonts, UI)
+```
+
+**Adding game content — quick reference:**
+- New scene → create `data/scenes/scenename.json`, add background to `assets/backgrounds/`
+- New item → add to `data/items.json`, icon to `assets/items/`
+- New character → add to `data/characters.json`, sprite to `assets/sprites/`, dialogue to `data/dialogues/`
+- New puzzle → wire up items/hotspots/flags in JSON, add metadata to `data/puzzles.json`
+- See `ENGINE_REFERENCE.md` for full JSON schemas and how-to guides
+
+**Debug:** F1 = debug overlays, F5 = quick save, F9 = quick load
+
+**Placeholder system:** The engine never crashes on missing assets — missing backgrounds,
+sprites, icons, audio, and fonts all get auto-generated placeholders. Build and test
+the entire game before creating any art.
 
 ---
 

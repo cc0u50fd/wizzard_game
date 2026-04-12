@@ -1,0 +1,45 @@
+{
+  "id": "example_dialogue",
+  "nodes": {
+    "start": {
+      "type": "say",
+      "speaker": "example_npc",
+      "text": "Hello there! Welcome to this place.",
+      "next": "player_response"
+    },
+    "player_response": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Tell me about this place.",
+          "next": "about_place"
+        },
+        {
+          "text": "Do you have anything useful?",
+          "next": "give_item",
+          "condition": {"not": {"flag": "received_item"}}
+        },
+        {
+          "text": "Goodbye.",
+          "next": "farewell"
+        }
+      ]
+    },
+    "about_place": {
+      "type": "say",
+      "speaker": "example_npc",
+      "text": "This is just an example scene. Replace this dialogue with your own!",
+      "next": "player_response"
+    },
+    "give_item": {
+      "type": "action",
+      "actions": [
+        {"type": "set_flag", "flag": "received_item", "value": true}
+      ],
+      "next": "farewell"
+    },
+    "farewell": {
+      "type": "end"
+    }
+  }
+}
