@@ -27,7 +27,7 @@
     {
       "id": "desk",
       "name": "Desk",
-      "rect": [450, 380, 250, 100],
+      "rect": [430, 445, 250, 100],
       "walk_to": [580, 510],
       "look_at_dir": "right",
       "actions": {
