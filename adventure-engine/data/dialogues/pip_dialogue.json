@@ -34,12 +34,12 @@
     "first_meeting_3": {
       "type": "say",
       "speaker": "pip",
-      "text": "And yet here we are! The universe creates the conditions for connection. I'm Pip — your Therapeutic Familiar. I am SO excited to begin this journey with you.",
+      "text": "And yet here we are! The universe creates the conditions for connection. I'm Pip Pip — your Therapeutic Familiar. I am SO excited to begin this journey with you.",
       "next": "first_meeting_4"
     },
     "first_meeting_4": {
       "type": "player_say",
-      "text": "I know who you are, Pip.",
+      "text": "I know who you are, Pip Pip.",
       "next": "first_meeting_5"
     },
     "first_meeting_5": {
@@ -75,7 +75,7 @@
           "next": "fine_response"
         },
         {
-          "text": "What exactly ARE you, Pip?",
+          "text": "What exactly ARE you, Pip Pip?",
           "next": "what_are_you"
         },
         {
@@ -226,7 +226,7 @@
     },
     "get_rid_6": {
       "type": "player_say",
-      "text": "Pip. I am asking you, professionally, as your wizard—",
+      "text": "Pip Pip. I am asking you, professionally, as your wizard—",
       "next": "get_rid_7"
     },
     "get_rid_7": {
@@ -255,7 +255,7 @@
     },
     "about_gerald_2": {
       "type": "player_say",
-      "text": "Someone stole his labyrinth, Pip.",
+      "text": "Someone stole his labyrinth, Pip Pip.",
       "next": "about_gerald_3"
     },
     "about_gerald_3": {
@@ -335,7 +335,7 @@
           "next": "fine_response"
         },
         {
-          "text": "What exactly ARE you, Pip?",
+          "text": "What exactly ARE you, Pip Pip?",
           "next": "what_are_you"
         },
         {
@@ -395,7 +395,7 @@
     },
     "assessment_8": {
       "type": "player_say",
-      "text": "Goodbye, Pip.",
+      "text": "Goodbye, Pip Pip.",
       "next": "return_choices"
     },
 
@@ -430,7 +430,7 @@
     },
     "pre_case_4": {
       "type": "player_say",
-      "text": "Thank you, Pip. That was genuinely unhelpful.",
+      "text": "Thank you, Pip Pip. That was genuinely unhelpful.",
       "next": "pre_case_5"
     },
     "pre_case_5": {
@@ -455,7 +455,7 @@
           "next": "about_gerald"
         },
         {
-          "text": "I need to think. Goodbye, Pip.",
+          "text": "I need to think. Goodbye, Pip Pip.",
           "next": "pre_case_bye"
         }
       ]
@@ -534,7 +534,7 @@
       "type": "choice",
       "choices": [
         {
-          "text": "It's just a job, Pip.",
+          "text": "It's just a job, Pip Pip.",
           "next": "just_a_job"
         },
         {

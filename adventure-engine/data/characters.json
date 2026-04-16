@@ -2,7 +2,7 @@
   "characters": [
     {
       "id": "pip",
-      "name": "Pip",
+      "name": "Pip Pip",
       "is_companion": true,
       "follow_distance": 80,
       "speed_mult": 1.2,

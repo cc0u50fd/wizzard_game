@@ -179,13 +179,13 @@
     },
     {
       "id": "pip_hs",
-      "name": "Pip",
+      "name": "Pip Pip",
       "rect": [150, 340, 55, 75],
       "walk_to": [210, 490],
       "look_at_dir": "right",
       "actions": {
         "look": [
-          {"type": "say", "speaker": "player", "text": "Pip has settled on the corner of the hat stand. Like a small, relentlessly optimistic gargoyle.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "Pip Pip has settled on the corner of the hat stand. Like a small, relentlessly optimistic gargoyle.", "style": "thought"},
           {"type": "say", "speaker": "player", "text": "I've tried leaving the window open. They just come back in through it. Cheerfully.", "style": "thought"}
         ],
         "talk": [
