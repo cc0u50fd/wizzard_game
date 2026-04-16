@@ -76,6 +76,7 @@ receptionists, minotaurs wear cheap suits. The anachronism *is* the joke.
 | Mrs. Ethel Copperbottom | Receptionist — sentient filing golem | Passive-aggressive, terrifyingly efficient, speaks in filing metaphors | Made of card catalogues and brass index tabs, wears a tiny cardigan |
 | Gerald | Client — minotaur | Anxious, earnest, emotional, surprisingly gentle | Cheap suit, clip-on tie, NVQ in Lurking, distinction in Ominous Breathing |
 | The Magnificent Bastardo | Antagonist — con artist wizard | *Not yet seen in-game* | Most wanted wizard in three counties, cheap cologne, business cards |
+| Pip | Grimshaw's familiar (companion) | Relentlessly cheerful, speaks entirely in wellness buzzwords, genuinely cares, catastrophically unskilled | Permanently bonded via a Grade C exam explosion; more or less indestructible; mistakes sarcasm for progress; has kept a chart of Grimshaw's 'yes' responses |
 | Rashid | Kebab shop owner (downstairs) | *Not yet in-game — mentioned only* | Gives Grimshaw a discount (out of pity), tab is "creatively large" |
 
 ---

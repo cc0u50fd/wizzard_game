@@ -135,6 +135,22 @@
       }
     },
     {
+      "id": "pip_hs",
+      "name": "Pip",
+      "rect": [555, 430, 55, 75],
+      "walk_to": [610, 550],
+      "look_at_dir": "left",
+      "actions": {
+        "look": [
+          {"type": "say", "speaker": "player", "text": "Pip. My Therapeutic Familiar. I tried to dismiss them with a Class 3 Dismissal Curse. They came back with a pamphlet about self-compassion.", "style": "thought"},
+          {"type": "say", "speaker": "player", "text": "The bond is permanent, apparently. It said so in the explosion report. I've read that report many times.", "style": "thought"}
+        ],
+        "talk": [
+          {"type": "start_dialogue", "dialogue_id": "pip_dialogue"}
+        ]
+      }
+    },
+    {
       "id": "magazine_rack",
       "name": "Magazine Rack",
       "rect": [700, 400, 80, 60],

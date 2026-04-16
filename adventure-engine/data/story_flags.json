@@ -13,6 +13,7 @@
     "first_visit_waiting_room": true,
     "first_visit_office": true,
     "examined_noticeboard": false,
-    "examined_crystal_ball": false
+    "examined_crystal_ball": false,
+    "talked_to_pip": false
   }
 }

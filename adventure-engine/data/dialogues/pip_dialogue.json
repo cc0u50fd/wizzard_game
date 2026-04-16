@@ -1,0 +1,700 @@
+{
+  "id": "pip_dialogue",
+  "nodes": {
+    "start": {
+      "type": "conditional",
+      "branches": [
+        {
+          "condition": {"flag": "case_accepted", "equals": true},
+          "next": "post_case_greeting"
+        },
+        {
+          "condition": {"flag": "knows_about_labyrinth", "equals": true},
+          "next": "pre_case_greeting"
+        },
+        {
+          "condition": {"flag": "talked_to_pip", "equals": true},
+          "next": "return_greeting"
+        }
+      ],
+      "default": "first_meeting"
+    },
+
+    "first_meeting": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Oh! You're initiating contact! That's a really positive step, Mortimer.",
+      "next": "first_meeting_2"
+    },
+    "first_meeting_2": {
+      "type": "player_say",
+      "text": "I didn't initiate anything. I just walked past you.",
+      "next": "first_meeting_3"
+    },
+    "first_meeting_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "And yet here we are! The universe creates the conditions for connection. I'm Pip — your Therapeutic Familiar. I am SO excited to begin this journey with you.",
+      "next": "first_meeting_4"
+    },
+    "first_meeting_4": {
+      "type": "player_say",
+      "text": "I know who you are, Pip.",
+      "next": "first_meeting_5"
+    },
+    "first_meeting_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Knowing and ACCEPTING are two very different things. How does it feel? In your body? Right now?",
+      "next": "first_meeting_6"
+    },
+    "first_meeting_6": {
+      "type": "player_say",
+      "text": "It feels like a question I want to stop answering.",
+      "next": "first_meeting_7"
+    },
+    "first_meeting_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "A BOUNDARY! Your first boundary of the day! This is going in the journal.",
+      "next": "first_meeting_action"
+    },
+    "first_meeting_action": {
+      "type": "action",
+      "actions": [
+        {"type": "set_flag", "flag": "talked_to_pip", "value": true}
+      ],
+      "next": "main_choices"
+    },
+
+    "main_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "I'm fine, thanks.",
+          "next": "fine_response"
+        },
+        {
+          "text": "What exactly ARE you, Pip?",
+          "next": "what_are_you"
+        },
+        {
+          "text": "How did we get bonded, again?",
+          "next": "origin_story"
+        },
+        {
+          "text": "Can I get rid of you?",
+          "next": "get_rid_of"
+        },
+        {
+          "text": "What do you make of Gerald's situation?",
+          "condition": {"flag": "knows_about_labyrinth", "equals": true},
+          "next": "about_gerald"
+        },
+        {
+          "text": "I don't have time for this.",
+          "next": "no_time"
+        }
+      ]
+    },
+
+    "fine_response": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You said 'fine.' That's TWO syllables more than yesterday, when you said 'nh.'",
+      "next": "fine_2"
+    },
+    "fine_2": {
+      "type": "player_say",
+      "text": "That wasn't a word.",
+      "next": "fine_3"
+    },
+    "fine_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "It was a vocalisation. I logged it as 'processing.' But 'fine' is a whole adjective, Mortimer. You're using ADJECTIVES. Huge.",
+      "next": "fine_4"
+    },
+    "fine_4": {
+      "type": "player_say",
+      "text": "That is the lowest bar for progress I have ever encountered.",
+      "next": "fine_5"
+    },
+    "fine_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "And you CLEARED it. That's what matters.",
+      "next": "main_choices"
+    },
+
+    "what_are_you": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'm a Therapeutic Familiar. Certified in Emotional Support, Aura Maintenance, and Mindful Spellcasting. Well — certified by myself. There isn't a board yet.",
+      "next": "what_are_you_2"
+    },
+    "what_are_you_2": {
+      "type": "player_say",
+      "text": "There isn't a board because this isn't a field.",
+      "next": "what_are_you_3"
+    },
+    "what_are_you_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Not YET. I'm in the process of manifesting the regulatory body. Also, I can't be banished, if that's what you're building toward.",
+      "next": "what_are_you_4"
+    },
+    "what_are_you_4": {
+      "type": "player_say",
+      "text": "You're manifesting your own licensing board.",
+      "next": "what_are_you_5"
+    },
+    "what_are_you_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Someone has to. The Licensing Board certainly isn't going to do it. Present company's situation excepted.",
+      "next": "main_choices"
+    },
+
+    "origin_story": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Oh, it's a BEAUTIFUL story. You were attempting your Grade C renewal. The examiner said you couldn't hold a Resonance Binding for thirty seconds. You said — and I quote — 'watch me.'",
+      "next": "origin_2"
+    },
+    "origin_2": {
+      "type": "player_say",
+      "text": "I remember the explosion.",
+      "next": "origin_3"
+    },
+    "origin_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "The explosion was the Binding WORKING. Briefly. Very briefly. But in that moment, you made contact with the in-between space — and I was there. I spend a lot of time in the in-between. The acoustics are lovely.",
+      "next": "origin_4"
+    },
+    "origin_4": {
+      "type": "player_say",
+      "text": "I lost my Grade C over that explosion.",
+      "next": "origin_5"
+    },
+    "origin_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You gained ME. I like to think that's the better outcome. Let's journal about which loss feels more significant.",
+      "next": "origin_6"
+    },
+    "origin_6": {
+      "type": "player_say",
+      "text": "I won't be doing that.",
+      "next": "origin_7"
+    },
+    "origin_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Filed under 'not ready yet.' That's fine. Healing isn't linear.",
+      "next": "main_choices"
+    },
+
+    "get_rid_of": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I sense a lot of resistance coming up right now. That's completely valid.",
+      "next": "get_rid_2"
+    },
+    "get_rid_2": {
+      "type": "player_say",
+      "text": "I've tried twice. You survived a Class 3 Dismissal Curse.",
+      "next": "get_rid_3"
+    },
+    "get_rid_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I did! I found it quite clarifying, actually. Like a cold shower, but with more dimensional rupturing.",
+      "next": "get_rid_4"
+    },
+    "get_rid_4": {
+      "type": "player_say",
+      "text": "You also came back with a pamphlet.",
+      "next": "get_rid_5"
+    },
+    "get_rid_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "There are excellent resources in the in-between. 'You Cannot Escape Your Feelings: A Guide for the Magically Resistant.' I thought of you immediately.",
+      "next": "get_rid_6"
+    },
+    "get_rid_6": {
+      "type": "player_say",
+      "text": "Pip. I am asking you, professionally, as your wizard—",
+      "next": "get_rid_7"
+    },
+    "get_rid_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Co-navigator. I prefer co-navigator.",
+      "next": "get_rid_8"
+    },
+    "get_rid_8": {
+      "type": "player_say",
+      "text": "—to please, in the name of every licensing board that has ever wronged me, stop.",
+      "next": "get_rid_9"
+    },
+    "get_rid_9": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I hear that. I'm holding space for it. The answer is no.",
+      "next": "main_choices"
+    },
+
+    "about_gerald": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Gerald. Oh, I've been observing him from across the room. He's carrying SO much.",
+      "next": "about_gerald_2"
+    },
+    "about_gerald_2": {
+      "type": "player_say",
+      "text": "Someone stole his labyrinth, Pip.",
+      "next": "about_gerald_3"
+    },
+    "about_gerald_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "And now he gets to discover who he is WITHOUT the labyrinth! The universe is creating space for his authentic self to emerge.",
+      "next": "about_gerald_4"
+    },
+    "about_gerald_4": {
+      "type": "player_say",
+      "text": "He's a minotaur. Without a labyrinth he's technically homeless and professionally obsolete.",
+      "next": "about_gerald_5"
+    },
+    "about_gerald_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Rock bottom is fertile soil, Mortimer.",
+      "next": "about_gerald_6"
+    },
+    "about_gerald_6": {
+      "type": "player_say",
+      "text": "That's not how soil works.",
+      "next": "about_gerald_7"
+    },
+    "about_gerald_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'm speaking metaphorically.",
+      "next": "about_gerald_8"
+    },
+    "about_gerald_8": {
+      "type": "player_say",
+      "text": "I know. That's the problem.",
+      "next": "main_choices"
+    },
+
+    "no_time": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Feeling pressed for time is your nervous system asking for care.",
+      "next": "no_time_2"
+    },
+    "no_time_2": {
+      "type": "player_say",
+      "text": "My nervous system is asking for five minutes without unsolicited wellness input.",
+      "next": "no_time_3"
+    },
+    "no_time_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "That's a WANT, not a NEED. Let's sit with the difference.",
+      "next": "no_time_action"
+    },
+    "no_time_action": {
+      "type": "action",
+      "actions": [
+        {"type": "set_flag", "flag": "talked_to_pip", "value": true}
+      ],
+      "next": "end"
+    },
+
+    "return_greeting": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You came back! I'm noting that as a positive pattern.",
+      "next": "return_choices"
+    },
+    "return_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "How am I doing, according to you?",
+          "next": "assessment"
+        },
+        {
+          "text": "Still fine. Still busy.",
+          "next": "fine_response"
+        },
+        {
+          "text": "What exactly ARE you, Pip?",
+          "next": "what_are_you"
+        },
+        {
+          "text": "Can I STILL not get rid of you?",
+          "next": "get_rid_of"
+        },
+        {
+          "text": "What do you make of Gerald's situation?",
+          "condition": {"flag": "knows_about_labyrinth", "equals": true},
+          "next": "about_gerald"
+        },
+        {
+          "text": "Nothing. Goodbye.",
+          "next": "return_goodbye"
+        }
+      ]
+    },
+
+    "assessment": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I did a full aura reading this morning while you were asleep. Some things came up.",
+      "next": "assessment_2"
+    },
+    "assessment_2": {
+      "type": "player_say",
+      "text": "I was asleep.",
+      "next": "assessment_3"
+    },
+    "assessment_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Your aura doesn't sleep, Mortimer. It was very chatty. Highlights: unresolved trust issues, something unprocessed involving a wand, and what I can only describe as 'profound ambivalence about own competence.'",
+      "next": "assessment_4"
+    },
+    "assessment_4": {
+      "type": "player_say",
+      "text": "That's just Tuesday.",
+      "next": "assessment_5"
+    },
+    "assessment_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "It's Thursday.",
+      "next": "assessment_6"
+    },
+    "assessment_6": {
+      "type": "player_say",
+      "text": "...That's just Thursday.",
+      "next": "assessment_7"
+    },
+    "assessment_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Naming the day! That's a grounding technique! You're doing it naturally! This is exactly what I—",
+      "next": "assessment_8"
+    },
+    "assessment_8": {
+      "type": "player_say",
+      "text": "Goodbye, Pip.",
+      "next": "return_choices"
+    },
+
+    "return_goodbye": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'll be right here. I'm always right here. That's the bond.",
+      "next": "return_goodbye_2"
+    },
+    "return_goodbye_2": {
+      "type": "player_say",
+      "text": "Yes. I know.",
+      "next": "end"
+    },
+
+    "pre_case_greeting": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I see we have a client! A minotaur! I'm sensing a lot of displaced anxiety in this room — and I don't think it's all yours.",
+      "next": "pre_case_2"
+    },
+    "pre_case_2": {
+      "type": "player_say",
+      "text": "His labyrinth was stolen.",
+      "next": "pre_case_3"
+    },
+    "pre_case_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Oh, that's a significant loss. Loss of home, loss of identity, loss of professional purpose. He's basically living your entire emotional backstory in real time.",
+      "next": "pre_case_4"
+    },
+    "pre_case_4": {
+      "type": "player_say",
+      "text": "Thank you, Pip. That was genuinely unhelpful.",
+      "next": "pre_case_5"
+    },
+    "pre_case_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You're welcome! Are you going to take his case?",
+      "next": "pre_case_choices"
+    },
+    "pre_case_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "Probably. If the paperwork cooperates.",
+          "next": "pre_case_probably"
+        },
+        {
+          "text": "I haven't decided yet.",
+          "next": "pre_case_undecided"
+        },
+        {
+          "text": "What do you make of Gerald's situation?",
+          "next": "about_gerald"
+        },
+        {
+          "text": "I need to think. Goodbye, Pip.",
+          "next": "pre_case_bye"
+        }
+      ]
+    },
+    "pre_case_probably": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "PROBABLY! Oh, Mortimer, do you know how long it's been since you said 'probably' about something positive? I've been tracking it. The chart is mostly blanks.",
+      "next": "pre_case_probably_2"
+    },
+    "pre_case_probably_2": {
+      "type": "player_say",
+      "text": "It's not positive. It's a case.",
+      "next": "pre_case_probably_3"
+    },
+    "pre_case_probably_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "A case is PURPOSE, Mortimer. Purpose is POSITIVE. I'm making a note.",
+      "next": "pre_case_choices"
+    },
+    "pre_case_undecided": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Sitting with uncertainty! That's emotionally mature. Most people rush to resolution. You're SITTING WITH IT.",
+      "next": "pre_case_undecided_2"
+    },
+    "pre_case_undecided_2": {
+      "type": "player_say",
+      "text": "I'm procrastinating.",
+      "next": "pre_case_undecided_3"
+    },
+    "pre_case_undecided_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "That is a reframe we will WORK on.",
+      "next": "pre_case_choices"
+    },
+    "pre_case_bye": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Of course! I'll be right here. Holding space.",
+      "next": "end"
+    },
+
+    "post_case_greeting": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "YOU TOOK THE CASE.",
+      "style": "shout",
+      "next": "post_case_2"
+    },
+    "post_case_2": {
+      "type": "player_say",
+      "text": "Please stop vibrating. It's unsettling.",
+      "next": "post_case_3"
+    },
+    "post_case_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You said YES to something! Do you know how long I've been waiting for you to say yes to something? I've been keeping a chart.",
+      "next": "post_case_4"
+    },
+    "post_case_4": {
+      "type": "player_say",
+      "text": "You've been keeping a chart of my 'yes' responses.",
+      "next": "post_case_5"
+    },
+    "post_case_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "And your 'no' responses, and your 'nh' responses, and a special category for instances where you just leave the room. Today's bar is going to look completely different. I may need a new scale.",
+      "next": "post_case_choices"
+    },
+    "post_case_choices": {
+      "type": "choice",
+      "choices": [
+        {
+          "text": "It's just a job, Pip.",
+          "next": "just_a_job"
+        },
+        {
+          "text": "Any advice?",
+          "next": "pip_advice"
+        },
+        {
+          "text": "Please stop vibrating.",
+          "next": "stop_vibrating"
+        },
+        {
+          "text": "I have a case to work on.",
+          "next": "post_case_bye"
+        }
+      ]
+    },
+
+    "just_a_job": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "It is NEVER 'just a job.' You engaged with another being's distress and chose to help. That's CONNECTION, Mortimer. That's your authentic self reaching out.",
+      "next": "just_a_job_2"
+    },
+    "just_a_job_2": {
+      "type": "player_say",
+      "text": "My authentic self reached out for a fee.",
+      "next": "just_a_job_3"
+    },
+    "just_a_job_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "The universe doesn't care about motivations. Only the action. You acted.",
+      "next": "just_a_job_4"
+    },
+    "just_a_job_4": {
+      "type": "player_say",
+      "text": "Please don't be proud of me. It's disorienting.",
+      "next": "just_a_job_5"
+    },
+    "just_a_job_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'm going to be proud of you so much. Brace yourself.",
+      "next": "post_case_choices"
+    },
+
+    "pip_advice": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Oh wonderful! You're asking for support! Okay. Deep breath.",
+      "next": "pip_advice_2"
+    },
+    "pip_advice_2": {
+      "type": "player_say",
+      "text": "I'll pass on the breath—",
+      "next": "pip_advice_3"
+    },
+    "pip_advice_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Mortimer. Breathe.",
+      "style": "shout",
+      "next": "pip_advice_4"
+    },
+    "pip_advice_4": {
+      "type": "player_say",
+      "text": "...fine.",
+      "next": "pip_advice_5"
+    },
+    "pip_advice_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Good. Now. What would it mean for you if you SUCCEEDED in this case? Sit with that.",
+      "next": "pip_advice_6"
+    },
+    "pip_advice_6": {
+      "type": "player_say",
+      "text": "It would mean I could pay Rashid.",
+      "next": "pip_advice_7"
+    },
+    "pip_advice_7": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "DEEPER.",
+      "style": "shout",
+      "next": "pip_advice_8"
+    },
+    "pip_advice_8": {
+      "type": "player_say",
+      "text": "It would mean I'm still capable of doing the job I trained for.",
+      "next": "pip_advice_9"
+    },
+    "pip_advice_9": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "...There it is.",
+      "style": "whisper",
+      "next": "pip_advice_10"
+    },
+    "pip_advice_10": {
+      "type": "player_say",
+      "text": "Don't.",
+      "next": "pip_advice_11"
+    },
+    "pip_advice_11": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'm not saying anything. I'm just noting it. For later. When you're ready.",
+      "next": "post_case_choices"
+    },
+
+    "stop_vibrating": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Ah. Too much enthusiasm. Noted. I'll recalibrate.",
+      "next": "stop_vibrating_2"
+    },
+    "stop_vibrating_2": {
+      "type": "player_say",
+      "text": "Thank you.",
+      "next": "stop_vibrating_3"
+    },
+    "stop_vibrating_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "I'm still proud of you though.",
+      "next": "stop_vibrating_4"
+    },
+    "stop_vibrating_4": {
+      "type": "player_say",
+      "text": "...Fine.",
+      "next": "stop_vibrating_5"
+    },
+    "stop_vibrating_5": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "You said 'fine' again. Still progress.",
+      "next": "post_case_choices"
+    },
+
+    "post_case_bye": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "Of course! I'll be right here. Supporting your emotional ecosystem from a respectful distance.",
+      "next": "post_case_bye_2"
+    },
+    "post_case_bye_2": {
+      "type": "player_say",
+      "text": "You are three feet away from me.",
+      "next": "post_case_bye_3"
+    },
+    "post_case_bye_3": {
+      "type": "say",
+      "speaker": "pip",
+      "text": "That's the distance.",
+      "next": "end"
+    },
+
+    "end": {
+      "type": "end"
+    }
+  }
+}

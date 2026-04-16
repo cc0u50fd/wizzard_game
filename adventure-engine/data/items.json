@@ -31,6 +31,12 @@
         "filing_cabinet": [
           {"type": "say", "speaker": "player", "text": "I don't think the filing cabinet accepts liquid bribes.", "style": "thought"}
         ],
+        "pip_hs": [
+          {"type": "say", "speaker": "player", "text": "I hold the filing reference out toward Pip.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "GER-LAB-7742/B! I love that you're organising things. Organisation is a form of self-care."},
+          {"type": "say", "speaker": "player", "text": "I'm going to go use this on the filing cabinet now.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "Purposeful action! Excellent!"}
+        ],
         "bookshelf": [
           {"type": "say", "speaker": "player", "text": "Books and booze don't mix. Well, actually they mix brilliantly, but not like this.", "style": "thought"}
         ],
@@ -42,6 +48,12 @@
         ],
         "takeaway_containers": [
           {"type": "say", "speaker": "player", "text": "Mixing old kebab grease with an empty flask. Even I'm not that desperate.", "style": "thought"}
+        ],
+        "pip_hs": [
+          {"type": "say", "speaker": "player", "text": "I hold out the empty flask.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "Oh! Are you sharing? That's a real gesture of vulnerability, Mortimer."},
+          {"type": "say", "speaker": "player", "text": "It's empty.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "The gesture STILL COUNTS."}
         ]
       }
     },
@@ -92,6 +104,13 @@
         ],
         "filing_cabinet": [
           {"type": "say", "speaker": "player", "text": "I just took this OUT of the filing cabinet. Putting it back would be the most pointless thing I've done today. And the bar is high.", "style": "thought"}
+        ],
+        "pip_hs": [
+          {"type": "say", "speaker": "player", "text": "I hold out the case file.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "Oh, is that Gerald's case file? I love that you're taking tangible steps. Tangible steps are so grounding."},
+          {"type": "say", "speaker": "player", "text": "I need to give this to Gerald, Pip. Not to you.", "style": "thought"},
+          {"type": "say", "speaker": "pip", "text": "Of course! Go! Take action! I'll be here vibrating with pride."},
+          {"type": "say", "speaker": "player", "text": "Please don't vibrate.", "style": "thought"}
         ]
       }
     }

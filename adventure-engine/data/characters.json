@@ -1,6 +1,14 @@
 {
   "characters": [
     {
+      "id": "pip",
+      "name": "Pip",
+      "is_companion": true,
+      "follow_distance": 80,
+      "speed_mult": 1.2,
+      "dialogue_id": "pip_dialogue"
+    },
+    {
       "id": "ethel",
       "name": "Mrs. Ethel Copperbottom",
       "sprite": "sprites/ethel_standing",
